@@ -40,6 +40,17 @@
 extern "C" {
 #endif
 
+/**
+ * Block system interrupts during the a printf call to allow for atomic output.
+ * This function is declared here only. You have to write your custom implementation somewhere
+ */
+void _printf_lock(void);
+
+/**
+ * Unblock system interrupts after a printf call to allow for normal operation.
+ * This function is declared here only. You have to write your custom implementation somewhere
+ */
+void _printf_unlock(void);
 
 /**
  * Output a character to a custom device like UART, used by the printf() function
